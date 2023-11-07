@@ -5,6 +5,11 @@ import { UpdateProductPage } from './update-product/update-product.page';
 const routes: Routes = [
   {
     path: '',
+    redirectTo: 'login',
+    pathMatch: 'full'
+  },
+  {
+    path: '',
     loadChildren: () => import('./tabs/tabs.module').then(m => m.TabsPageModule)
   },
   {
@@ -16,8 +21,12 @@ const routes: Routes = [
     loadChildren: () => import('./update-product/update-product.module').then( m => m.UpdateProductPageModule)
   },
   {
-    path: 'update-product/:index', // Usaremos el índice en lugar de un ID
+    path: 'update-product/:index',
     component: UpdateProductPage,
+  },
+  {
+    path: 'login',
+    loadChildren: () => import('./login/login.module').then( m => m.LoginPageModule)
   },
 ];
 @NgModule({

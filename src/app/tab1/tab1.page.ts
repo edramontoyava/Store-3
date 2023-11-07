@@ -112,4 +112,12 @@ export class Tab1Page {
       },
     ]);
   }
+  public closeSession() {
+    const confirmDelete = window.confirm(
+      '¿Estás seguro de que quieres cerrar la sesión?'
+    );
+    if (confirmDelete) {
+      this.router.navigate(['/login']);
+    }
+  }
 }
